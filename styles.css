@@ -1,0 +1,182 @@
+@import url(./reset.css);
+
+:root{
+    --DarkBlue: hsl(240, 38%, 20%);
+    --GrayishBlue: hsl(240, 18%, 77%);
+}
+
+html, body{
+    font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    background-image: url(./images/pattern-quotes.svg), url(./images/pattern-curve.svg), url(./images/pattern-bg.svg);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 15% 30%, left bottom, 90% center;
+    overflow: hidden;
+}
+main{    
+    width: 80%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+    .first-div, .second-div{
+        display: grid;
+        grid-template-columns: 2;
+        height: 100%;
+        article{
+            z-index: 0;
+            grid-column: 1;
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+    .img-div{
+        box-shadow: 0 5px 20px rgb(111, 111, 111);
+        margin: 0 0 0 -4vw;
+        z-index: -1;
+        border-radius: 5px;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+}
+
+h1{
+    font-size: clamp(1.3rem, 2.6vw, 3rem);
+    line-height: clamp(1.9rem, 3vw, 3.6rem);
+    font-weight: 400;
+    margin: 0 0 2vw;
+}
+p{
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    color: var(--GrayishBlue);
+    strong{
+        color: var(--DarkBlue);
+    }
+}
+.first-div{
+    transform: translateX(0%);
+    transition: transform 0.5s ease-in-out;
+}
+.second-div{
+    position: absolute;
+    transform: translateX(120%);
+    transition: transform 0.5s ease-in-out;
+}
+.fdclicked{
+    transform: translateX(120%);
+}
+.sdclicked{
+    transform: translateX(0%);
+}
+.arrow-disable{
+    filter: brightness(150%);
+    pointer-events: none;
+}
+.arrows-div{
+    display: flex;
+    position: absolute;
+    top: clamp(14rem, 35vw, 32.2rem);
+    left: clamp(18rem, 50vw, 50rem);
+    gap: 2vw;
+    padding: 1vw 1.3vw;
+    border-radius: 4vw;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0 12px 20px 1px gray;
+    img{
+        cursor: pointer;
+    }
+}
+footer{
+    position: absolute;
+    top: 97%;
+}
+
+@media screen and (max-width: 600px) {
+    html, body{
+        width: 100%;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-size: 12%, contain, 70%;
+        background-position: center 60%, left bottom, center 7%;
+    }
+    main{    
+        height: 100%;
+        width: 85%;
+        display: flex;
+        align-items: start;
+        margin: 3vw 0 0;
+        justify-content: center;
+        position: relative;
+        overflow: visible;
+        .first-div, .second-div{
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1;
+            article{
+                z-index: 0;
+                grid-column: 1;
+                grid-row: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        .img-div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+            margin: 0;
+            z-index: -1;
+            grid-column: 1;
+            grid-row: 1;
+            margin: 0 0 15vw;
+            img{
+                border-radius: 5px;
+                width: 60vw;
+                box-shadow: 0 4px 20px 2px gray;
+            }
+        }
+    }
+    
+    h1{
+        font-size: clamp(1.3rem, 5vw, 4rem);
+        line-height: clamp(1.9rem, 5.5vw, 3.9rem);
+        font-weight: 400;
+        margin: 0 0 2vw;
+    }
+    p{
+        margin: 3vw 0 0;
+        font-size: clamp(1rem, 1.3vw, 1.2rem);
+        color: var(--GrayishBlue);
+        display: flex;
+        flex-direction: column;
+        strong{
+            color: var(--DarkBlue);
+        }
+    }
+    .arrows-div{
+        display: flex;
+        position: absolute;
+        top: 55vw;
+        left: 34vw;
+        gap: 4vw;
+        padding: 1vw 1.3vw;
+        border-radius: 6vw;
+        background-color: white;
+        align-items: center;
+        box-shadow: 0 12px 20px 1px gray;
+        padding: 3vw 4vw;
+        img{
+            cursor: pointer;
+        }
+    }
+}
