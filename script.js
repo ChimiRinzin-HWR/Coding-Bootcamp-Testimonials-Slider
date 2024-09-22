@@ -49,7 +49,6 @@ main.addEventListener('touchmove', (event) => {
       // Swipe right (Previous)
       prev();
     }
-    startX = 0;
   }
 });
 
